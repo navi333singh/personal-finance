@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { TrendingUp } from "lucide-react";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import {
   Card,
@@ -10,62 +10,56 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-]
+  { stipendi: "January", desktop: 0, mobile: 80 },
+  { stipendi: "February", desktop: 1299, mobile: 200 },
+  { stipendi: "March", desktop: 1299, mobile: 120 },
+  { stipendi: "April", desktop: 1299, mobile: 190 },
+  { stipendi: "May", desktop: 2141, mobile: 130 },
+  { stipendi: "June", desktop: 2100, mobile: 140 },
+];
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+    label: "Stipendio",
+    color: "black",
   },
   mobile: {
     label: "Mobile",
     color: "hsl(var(--chart-2))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export default function LineChartComponent() {
   return (
-    <Card>
+    <Card style={{ background: "#f6f5f4" }}>
       <CardHeader>
         <CardTitle>Net worth</CardTitle>
       </CardHeader>
       <CardContent>
-      <div>
-        <p className="font-semibold text-2xl size-16">25'000€</p>  
+        <div>
+          <p className="font-semibold text-5xl">€83.00</p>
+        </div>
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              top: 10,
+              left: 10,
+              right: 10,
             }}
           >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
             <ChartTooltip
-              cursor={false}
+              cursor={true}
               content={<ChartTooltipContent hideLabel />}
             />
             <Line
@@ -73,19 +67,16 @@ export default function LineChartComponent() {
               type="natural"
               stroke="var(--color-desktop)"
               strokeWidth={2}
-              dot={{
-                fill: "var(--color-desktop)",
-              }}
-              activeDot={{
-                r: 6,
-              }}
+              dot={false}
             />
           </LineChart>
         </ChartContainer>
-        </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
+      <CardFooter className="flex-col items-start gap-2 text-base">
+        <div
+          style={{ color: "#009E60" }}
+          className="flex gap-2 font-normal leading-none"
+        >
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
@@ -93,5 +84,5 @@ export default function LineChartComponent() {
         </div>
       </CardFooter>
     </Card>
-  )
+  );
 }
