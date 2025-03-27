@@ -1,14 +1,10 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { Line,LineChart } from "recharts";
 
 import {
-  Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import {
@@ -18,82 +14,78 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import {useTranslations} from 'next-intl';
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge"
 
 
-
-const chartData = [
-  { stipendi: "January", desktop: 2141, mobile: 80 },
-  { stipendi: "February", desktop: 2141, mobile: 200 },
-  { stipendi: "March", desktop: 2141, mobile: 120 },
-  { stipendi: "April", desktop: 2299, mobile: 190 },
-  { stipendi: "May", desktop: 2141, mobile: 130 },
-  { stipendi: "June", desktop: 2100, mobile: 140 },
-];
-
-
-const chartConfig = {
-  desktop: {
-    label: "Entra",
-    color:  chartData[chartData.length-1].desktop >= chartData[chartData.length-2].desktop ? "green" : "red",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
-  },
-} satisfies ChartConfig;
-
-export default function LineChartComponent() {
-  const [saldo, setSaldo] = useState(1.99); 
+export default function LineChartComponent({title, value, data}) {
+  const saldo = value.toString().split('.');
   const t = useTranslations('Chart');
+  const chartData = data;
+
+  const chartConfig = {
+    revenue: {
+      label: "Revenue",
+      color:  chartData[chartData.length-1].revenue >= chartData[chartData.length-2].revenue ? "green" : "red",
+    },
+    subscription: {
+      label: "Subscriptions",
+      color: "hsl(var(--chart-))",
+    },
+  } satisfies ChartConfig;
   return (
-   
-    <Card style={{ background: "#f6f5f4" }}>
-      <CardHeader>
-        <CardTitle>
+    <>
+        <CardTitle className="text-xl font-semibold m-2 pl-5">
           <section>
-            <h1>{t('networth')}</h1>
+            <h1>{title}</h1>
           </section>
         </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div>
-          <p className="font-semibold text-5xl">€{saldo}</p>
-        </div>
-        <ChartContainer config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              top: 10,
-              left: 10,
-              right: 10,
-              bottom: 10,
-            }}
-            height={5}
-          >
-            <ChartTooltip
-              cursor={true}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Line
-              dataKey="desktop"
-              type="natural"
-              stroke="var(--color-desktop)"
-              strokeWidth={2}
-              dot={true}
-            />
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-base">
-        <div
-          style={{ color: "#009E60" }}
-          className="flex gap-2 font-normal leading-none"
-        >
-          {t('chart_desc_up',{perc:"10"})} <TrendingUp className="h-4 w-4" />
-        </div>
-      </CardFooter>
-    </Card>
+        <CardContent className="">
+          <Badge variant="secondary" className="bg-green-100 text-green-800" >
+              <TrendingUp size={16} strokeWidth={1.75} className="mr-1" /> 
+              {"12.1% "+t('chart_desc_up',{perc:"10"})}
+          </Badge>
+          <div className="mb-4">
+            <p className="font-semibold text-5xl">€{saldo[0]}<span className="text-gray-400">.{saldo[1]}</span></p>
+          </div>
+          <ChartContainer config={chartConfig} className="h-[80px] w-full max-sm:w-64">
+              {chartData[0].revenue != -1 ? lineChartFunct(chartData) :  emptyChart()}
+            </ChartContainer>
+        </CardContent>
+    </>
+  );
+}
+
+function lineChartFunct (data: any){
+  return (
+  <LineChart
+    data={data}
+    margin={{
+      top: 5,
+      right: 10,
+      left: 10,
+      bottom: 10,
+    }}
+  >
+    <ChartTooltip
+    cursor={true}
+    content={<ChartTooltipContent hideLabel />}
+    />
+    <Line
+      type="monotone"
+      strokeWidth={2}
+      dataKey="revenue"
+      stroke="var(--color-revenue)"
+      activeDot={{
+        r: 6,
+      }}
+    />
+  </LineChart>);
+}
+
+function emptyChart (){
+  return (
+    <div className="text-start align-middle">
+      Dati non disponibile
+    </div>
   );
 }

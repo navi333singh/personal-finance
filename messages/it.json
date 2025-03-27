@@ -1,7 +1,11 @@
 {
     "Chart": {
-      "networth": "Patrimonio netto",
-      "chart_desc_up": "saldo in aumento del {perc}% questo mese",
-      "followers": "fwqf"
+      "networth": "Saldo totale",
+      "chart_desc_up": "vs l'ultimo mese",
+      "Stock": "Azioni",
+      "Savings":"Risparmi"
+    },
+    "Dashboard":{
+      "user_name": "Buongiorno, {name}"
     }
   }
