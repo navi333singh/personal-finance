@@ -1,40 +1,69 @@
-<<<<<<< HEAD
-# personal-finance
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Finance ( ON GOING )
 
-## Getting Started
+## Descrizione
 
-First, run the development server:
+Personal Finance è un'applicazione web sviluppata con Next.js che aiuta gli utenti a gestire le proprie finanze personali. L'app offre strumenti per monitorare le spese, creare budget, e analizzare le abitudini di spesa per migliorare la gestione finanziaria.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funzionalità
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Monitoraggio delle Spese**: Registra e categorizza le spese quotidiane.
+- **Creazione di Budget**: Imposta budget mensili e ricevi notifiche quando ti avvicini ai limiti di spesa.
+- **Analisi delle Spese**: Visualizza grafici e report dettagliati delle tue abitudini di spesa.
+- **Obiettivi di Risparmio**: Imposta obiettivi di risparmio e monitora i progressi.
+- **Integrazione con Banche**: Collega i tuoi conti bancari per importare automaticamente le transazioni.
+- **Sicurezza**: Protezione dei dati con crittografia e autenticazione a due fattori.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installazione
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clona il repository**:
+    ```bash
+    git clone https://github.com/tuo-username/personal-finance-app.git
+    ```
+2. **Naviga nella directory del progetto**:
+    ```bash
+    cd personal-finance-app
+    ```
+3. **Installa le dipendenze**:
+    ```bash
+    npm install
+    ```
+4. **Avvia l'applicazione**:
+    ```bash
+    npm run dev
+    ```
 
-## Learn More
+## Utilizzo
 
-To learn more about Next.js, take a look at the following resources:
+1. **Registrazione**: Crea un account per iniziare a utilizzare l'app.
+2. **Aggiungi Transazioni**: Registra le tue spese e entrate.
+3. **Imposta Budget**: Crea budget mensili per diverse categorie di spesa.
+4. **Monitora i Progressi**: Utilizza i grafici e i report per analizzare le tue finanze.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributi sono benvenuti! Se desideri contribuire, per favore segui questi passaggi:
 
-## Deploy on Vercel
+1. **Fork il repository**.
+2. **Crea un nuovo branch**:
+    ```bash
+    git checkout -b feature/nome-feature
+    ```
+3. **Fai le tue modifiche e committale**:
+    ```bash
+    git commit -m 'Aggiungi una nuova feature'
+    ```
+4. **Pusha le modifiche**:
+    ```bash
+    git push origin feature/nome-feature
+    ```
+5. **Apri una Pull Request**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licenza
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> eece89c (Initial commit from Create Next App)
+Questo progetto è rilasciato sotto la licenza MIT. Vedi il file LICENSE per maggiori dettagli.
+
+## Immagine
+
+<img src="https://github.com/user-attachments/assets/f9311c79-1b50-4a60-bf6c-d4a5c4430c9e" alt="Descrizione dell'immagine" width="500" height="300">
+
+
