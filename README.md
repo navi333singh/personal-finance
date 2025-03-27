@@ -64,6 +64,6 @@ Questo progetto è rilasciato sotto la licenza MIT. Vedi il file LICENSE per mag
 
 ## Immagine
 
-<img src="https://github.com/user-attachments/assets/f9311c79-1b50-4a60-bf6c-d4a5c4430c9e" alt="Descrizione dell'immagine" width="500" height="300">
+<img src="https://github.com/user-attachments/assets/f9311c79-1b50-4a60-bf6c-d4a5c4430c9e" alt="Descrizione dell'immagine" width="50%" height="50%">
 
 
