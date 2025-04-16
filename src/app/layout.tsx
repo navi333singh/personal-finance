@@ -5,6 +5,7 @@ import Page from "./dashboard";
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 
+
 const geistSans = localFont({
   src: "./fonts/PingFang.woff",
   variable: "--font-geist-sans",
